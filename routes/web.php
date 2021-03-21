@@ -17,6 +17,17 @@ Route::get('/', function () {
 
 Route::view('/contact', 'contact');
 
-Route::get('/clients', 'ClientsController@list');
 
+// controllers restfull
+
+Route::get('/clients', 'ClientsController@index'); 
+//add
+Route::get('/clients/create', 'ClientsController@create');
+//save
 Route::post('/clients', 'ClientsController@store');
+//detail
+Route::get('/clients/{client}', 'ClientsController@show');
+//edit
+Route::get('/clients/{client}/edit', 'ClientsController@edit');
+//update
+Route::patch('/clients/{client}','ClientsController@update');

@@ -10,12 +10,13 @@ use Symfony\Component\CssSelector\Node\PseudoNode;
 class ClientsController extends Controller
 {
     //
-    public function list()
+    public function index()
     {
 
-        //$clients = Client::all();
+
         //$clients = Client::where("status", '=', 1)->get(); sans utilisation du scope
-        $clients = Client::Status();
+        //$clients = Client::Status(); avec le scope
+        $clients = Client::all();
         $entreprises = Entreprise::all();
         /*return view(
             'clients/index',
@@ -24,6 +25,12 @@ class ClientsController extends Controller
             ]
         );*/
         return view('clients/index', compact('clients', 'entreprises'));
+    }
+
+    public function create()
+    {
+        $entreprises = Entreprise::all(); // utiliser dans le dropdown
+        return view('clients.create', compact('entreprises'));
     }
 
     public function store()
@@ -35,6 +42,7 @@ class ClientsController extends Controller
             'status' => 'required',
             'entreprise_id' => 'required|integer'
         ]);
+
         //récupe de ce qui a était post
         //$name = request('name');
         //$email = request('email');
@@ -47,7 +55,34 @@ class ClientsController extends Controller
         //$client->status = $status;
         //$client->save();
         Client::create($data);
+        dd($data);
         //retoure a la page précédente
         return back();
+        //return redirect()->view('clients/' . Client->id);
+        //return view('clients/index');
+    }
+    public function show($client)
+    {
+        //$client = Client::find($client);     1er solution
+        $client = Client::where('id', $client)->firstOrFail(); // ca léve une exception en cas on a une fausse id en lien
+
+        return view("clients.show", compact('client'));
+    }
+    public function edit(Client $client)
+    {
+        $entreprises = Entreprise::all();
+        return view("clients.edit", compact("client", "entreprises"));
+    }
+    public function update(Client $client)
+    {
+        $data = request()->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email',
+            'status' => 'required',
+            'entreprise_id' => 'required|integer'
+        ]);
+
+        $client->update($data);
+        return redirect("clients/" . $client->id);
     }
 }

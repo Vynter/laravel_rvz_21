@@ -19,4 +19,12 @@ class Client extends Model
     {
         return $this->belongsTo('App\Entreprise');
     }
+
+    public function getStatusAttribute($attribute)
+    {
+        return [
+            '0' => 'Inactif',
+            '1' => 'Actif'
+        ][$attribute];
+    }
 }
