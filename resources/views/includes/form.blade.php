@@ -17,7 +17,7 @@
                      <div class="invalid-feedback">{{$errors->first('email')}}</div>
                 @enderror
             </div>
-            <label for="">Status</label>
+            <label>Status</label>
             <div class="form-group">
                 <select class="form-select @error('status')is-invalid
                 @enderror" name="status">
