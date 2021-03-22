@@ -20,7 +20,7 @@ Route::view('/contact', 'contact');
 
 // controllers restfull
 
-Route::get('/clients', 'ClientsController@index'); 
+Route::get('/clients', 'ClientsController@index');
 //add
 Route::get('/clients/create', 'ClientsController@create');
 //save
@@ -30,4 +30,9 @@ Route::get('/clients/{client}', 'ClientsController@show');
 //edit
 Route::get('/clients/{client}/edit', 'ClientsController@edit');
 //update
-Route::patch('/clients/{client}','ClientsController@update');
+Route::patch('/clients/{client}', 'ClientsController@update');
+//delete
+Route::get('/clients/{client}/delete', 'ClientsController@destroy');
+
+//
+//Route::ressource('/clients','ClientsController');

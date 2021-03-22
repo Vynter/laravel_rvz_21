@@ -21,9 +21,9 @@
             <div class="form-group">
                 <select class="form-select @error('status')is-invalid
                 @enderror" name="status">
-
-                    <option value="1">Actif</option>
-                    <option value="0">Inactif</option>
+                    @foreach ($client->getStatusOptions() as $key => $value)
+                        <option value="{{$key}}" {{$client->status == $value ? "selected" : ""}}>{{$value}}</option>
+                    @endforeach
                 </select>
             </div>
             @error('email')
@@ -36,9 +36,8 @@
                 @enderror" name="entreprise_id">
 
                 @foreach ($entreprises as $ent)
-                <option value="{{$ent->id}}">{{$ent->name}}</option>
+                <option value="{{$ent->id}}" {{$ent->id == $client->entreprise_id ? "selected" :""}}>{{$ent->name}}</option>
                 @endforeach
-
 
                 </select>
             </div>

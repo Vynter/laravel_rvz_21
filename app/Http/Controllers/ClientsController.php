@@ -30,7 +30,9 @@ class ClientsController extends Controller
     public function create()
     {
         $entreprises = Entreprise::all(); // utiliser dans le dropdown
-        return view('clients.create', compact('entreprises'));
+        $client = new Client();
+
+        return view('clients.create', compact('client', 'entreprises'));
     }
 
     public function store()
@@ -55,9 +57,9 @@ class ClientsController extends Controller
         //$client->status = $status;
         //$client->save();
         Client::create($data);
-        dd($data);
+
         //retoure a la page précédente
-        return back();
+        return redirect("clients");
         //return redirect()->view('clients/' . Client->id);
         //return view('clients/index');
     }
@@ -84,5 +86,10 @@ class ClientsController extends Controller
 
         $client->update($data);
         return redirect("clients/" . $client->id);
+    }
+    public function destroy(Client $client)
+    {
+        $client->delete();
+        return redirect("clients");
     }
 }
