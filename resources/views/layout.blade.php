@@ -95,6 +95,12 @@
                     </div>
                 </div>
                 </nav>
+                @if (session()->has('msg'))
+                    <div class="alert alert-success" role="alert">
+                        Email a bien était envoyé {{session()->get('msg')}}
+                    </div>
+                @endif
+
                 @yield('content')
             </div>
             <!--fin de l'entete -->

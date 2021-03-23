@@ -9,6 +9,7 @@
                      <div class="invalid-feedback">{{$errors->first('name')}}</div>
                 @enderror
             </div>
+
             <div class="form-group">
                 <label for="my-inp">Email</label>
                 <input id="my-inp" type="text" name="email" class="form-control @error('email')is-invalid
@@ -17,6 +18,7 @@
                      <div class="invalid-feedback">{{$errors->first('email')}}</div>
                 @enderror
             </div>
+
             <label>Status</label>
             <div class="form-group">
                 <select class="form-select @error('status')is-invalid
@@ -36,7 +38,7 @@
                 @enderror" name="entreprise_id">
 
                 @foreach ($entreprises as $ent)
-                <option value="{{$ent->id}}" {{$ent->id == $client->entreprise_id ? "selected" :""}}>{{$ent->name}}</option>
+                    <option value="{{$ent->id}}" {{$ent->id == $client->entreprise_id ? "selected" :""}}>{{$ent->name}}</option>
                 @endforeach
 
                 </select>

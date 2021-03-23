@@ -32,7 +32,9 @@ Route::get('/clients/{client}/edit', 'ClientsController@edit');
 //update
 Route::patch('/clients/{client}', 'ClientsController@update');
 //delete
+//Route::delete("/clients/client",'ClientsController@destroy'); ca marche avec la methode('delete') dans un formulaire
 Route::get('/clients/{client}/delete', 'ClientsController@destroy');
-
-//
-//Route::ressource('/clients','ClientsController');
+//pour tt regroupé //Route::resource('/clients', 'ClientsController');
+// Contacte
+Route::get('/contact', 'ContactController@create');
+Route::post('/contact', 'ContactController@store');
