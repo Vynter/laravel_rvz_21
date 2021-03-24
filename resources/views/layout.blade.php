@@ -85,6 +85,9 @@
                         <a class="nav-link active" aria-current="page" href="/clients">clients</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/apropos">apropos</a>
+                        </li>
+                        <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                         </li>
                     </ul>

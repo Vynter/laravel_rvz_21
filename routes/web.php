@@ -12,17 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('layouts.app');
 });
 
-Route::view('/contact', 'contact');
+Route::view('/apropos', 'apropos')->middleware('test');
 
 
 // controllers restfull
 
 Route::get('/clients', 'ClientsController@index');
 //add
-Route::get('/clients/create', 'ClientsController@create');
+Route::get('/clients/create', 'ClientsController@create')->middleware('auth');
 //save
 Route::post('/clients', 'ClientsController@store');
 //detail
@@ -38,3 +38,6 @@ Route::get('/clients/{client}/delete', 'ClientsController@destroy');
 // Contacte
 Route::get('/contact', 'ContactController@create');
 Route::post('/contact', 'ContactController@store');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

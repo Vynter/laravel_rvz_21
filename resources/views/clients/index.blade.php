@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 <h1>Clients</h1>
@@ -12,7 +12,11 @@
                 <th>Nom</th>
                 <th>Status</th>
                 <th>Entreprise</th>
+                @guest
+                @else
                 <th colspan="2">Option</th>
+                @endguest
+
             </tr>
         </thead>
 <tbody>
@@ -24,8 +28,12 @@
                 <td><a href="/clients/{{$client->id}}">{{$client->name}}</a> </td>
                 <td>{{$client->status /* il marche grace au getteur dans le modele*/ }} </td>
                 <td>{{$client->entreprise->name}} </td>
+                @guest
+                @else
                 <td><a href="/clients/{{$client->id}}/edit"><i class="fa fa-pen" aria-hidden="true"></i></a> </td>
                 <td><a href="/clients/{{$client->id}}/delete"><i class="fas fa-times"></i></a></td>
+                @endguest
+
             </tr>
 
 

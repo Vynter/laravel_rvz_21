@@ -9,6 +9,11 @@ use Symfony\Component\CssSelector\Node\PseudoNode;
 
 class ClientsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index']);
+        //$this->middleware('auth', ['only' => ['create', 'store', 'edit', 'delete']]);
+    }
     //
     public function index()
     {
