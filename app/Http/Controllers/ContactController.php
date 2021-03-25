@@ -23,6 +23,6 @@ class ContactController extends Controller
 
         // 1er solution
         session()->flash('msg', 'Le message a bien était envoyé !');
-        return redirect('/contact')->with('msg', 'Le message a bien était envoyé !');
+        return redirect('/contactez-nous')->with('msg', 'Le message a bien était envoyé !');
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Contactez-nous</h1>
     @if (!session()->has('msg'))
-    <form action="/contact" method="post">
+    <form action="{{url('/contact')}}" method="post">
         @csrf
 
         <div class="form-group">

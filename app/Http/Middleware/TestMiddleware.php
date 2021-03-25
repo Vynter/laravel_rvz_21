@@ -18,7 +18,7 @@ class TestMiddleware
         if (now()->format('s') % 2 == 0) {
             //dd('teste' . now()->format('s'));
         } else {
-            return response('vous ave pas le droit de visier car la seconde n\'est pas impaire ');
+            return response('vous ave pas le droit de visier car la seconde actuelle  n\'est pas impaire ');
             return redirect('/');
         }
 

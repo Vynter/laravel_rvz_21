@@ -39,7 +39,7 @@
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/contact">contact</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('contact.index')}}">contact</a>
                             </li>
                             <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/clients">clients</a>

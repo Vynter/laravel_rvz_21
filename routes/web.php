@@ -28,7 +28,7 @@ Route::post('/clients', 'ClientsController@store');
 //detail
 Route::get('/clients/{client}', 'ClientsController@show');
 //edit
-Route::get('/clients/{client}/edit', 'ClientsController@edit');
+Route::get('/clients/{client}/edit', 'ClientsController@edit')->name('clients.edit');
 //update
 Route::patch('/clients/{client}', 'ClientsController@update');
 //delete
@@ -36,8 +36,8 @@ Route::patch('/clients/{client}', 'ClientsController@update');
 Route::get('/clients/{client}/delete', 'ClientsController@destroy');
 //pour tt regroupé //Route::resource('/clients', 'ClientsController');
 // Contacte
-Route::get('/contact', 'ContactController@create');
-Route::post('/contact', 'ContactController@store');
+Route::get('/contactez-nous', 'ContactController@create')->name('contact.index');;
+Route::post('/contact', 'ContactController@store')->name('contact.store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

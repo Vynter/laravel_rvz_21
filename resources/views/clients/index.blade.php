@@ -30,7 +30,8 @@
                 <td>{{$client->entreprise->name}} </td>
                 @guest
                 @else
-                <td><a href="/clients/{{$client->id}}/edit"><i class="fa fa-pen" aria-hidden="true"></i></a> </td>
+                <!--<td><a href="/clients/{{$client->id}}/edit"><i class="fa fa-pen" aria-hidden="true"></i></a> </td>-->
+                <td><a href="{{route('clients.edit',['client'=>$client->id])}}"><i class="fa fa-pen" aria-hidden="true"></i></a></td>
                 <td><a href="/clients/{{$client->id}}/delete"><i class="fas fa-times"></i></a></td>
                 @endguest
 
