@@ -4,6 +4,7 @@
 <h1>Clients</h1>
 <hr>
 <a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
+<a href="{{action('HomeController@index')}}">Home</a>
     <ul>
         <table class="table table-light">
         <thead>
@@ -34,6 +35,7 @@
                 <td><a href="{{route('clients.edit',['client'=>$client->id])}}"><i class="fa fa-pen" aria-hidden="true"></i></a></td>
                 <td><a href="/clients/{{$client->id}}/delete"><i class="fas fa-times"></i></a></td>
                 @endguest
+
 
             </tr>
 
