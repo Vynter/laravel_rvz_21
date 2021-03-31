@@ -24,7 +24,7 @@ Route::get('/clients', 'ClientsController@index');
 //add
 Route::get('/clients/create', 'ClientsController@create')->middleware('auth');
 //save
-Route::post('/clients', 'ClientsController@store');
+Route::post('/clients', 'ClientsController@store')->name('clients.store');
 //detail
 Route::get('/clients/{client}', 'ClientsController@show');
 //edit
