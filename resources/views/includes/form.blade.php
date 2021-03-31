@@ -47,4 +47,16 @@
                 <div class="invalid-feedback">{{$errors->first('entreprise_id')}}</div>
             @enderror
 
+            <div class="form-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input @error('img')
+                    is-invalid
+                @enderror" id="validatedCustomFile" name="img">
+                <label class="custom-file-label" for="validatedCustomFile">Veuillez choisir un fichier...</label>
+                @error('img')
+                    <div class="invalid-feedback">{{$errors->first('img') }}</div>
+                @enderror
+            </div>
+            </div>
+            <br>
             <br>

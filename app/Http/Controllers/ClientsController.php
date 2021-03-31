@@ -47,7 +47,8 @@ class ClientsController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email',
             'status' => 'required',
-            'entreprise_id' => 'required|integer'
+            'entreprise_id' => 'required|integer',
+            'img' => 'sometimes|image' //sometimes = si oui ok sinon ok aussi
         ]);
 
         //récupe de ce qui a était post
@@ -86,7 +87,8 @@ class ClientsController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email',
             'status' => 'required',
-            'entreprise_id' => 'required|integer'
+            'entreprise_id' => 'required|integer',
+            'img' => 'sometimes|image'
         ]);
 
         $client->update($data);

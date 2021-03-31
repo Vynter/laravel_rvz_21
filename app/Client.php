@@ -13,6 +13,11 @@ class Client extends Model
         'status' => 2 // valeurs par default de statuts
     ];
 
+    /*
+    |----------------------------------------------------------------------------------------------------
+    |ORM relation
+    |----------------------------------------------------------------------------------------------------
+    */
     public function scopeStatus($query)
     {
         return $query->where('status', 1)->get();
@@ -23,6 +28,11 @@ class Client extends Model
         return $this->belongsTo('App\Entreprise');
     }
 
+    /*
+    |----------------------------------------------------------------------------------------------------
+    |Accessor/setteur
+    |----------------------------------------------------------------------------------------------------
+    */
     public function getStatusAttribute($attributes)
     {
         //a la base ca ressemble a sa
@@ -40,5 +50,15 @@ class Client extends Model
             '1' => 'Actif',
             '2' => 'En attent'
         ]; // l'attribut c'est l'index du tableau
+    }
+
+    /*
+    |----------------------------------------------------------------------------------------------------
+    |Mutator/setteur
+    |----------------------------------------------------------------------------------------------------
+    */
+    public function setImgAttribute()
+    {
+        $this->attributes['img'] = request('img')->store('avatare', 'public');
     }
 }
