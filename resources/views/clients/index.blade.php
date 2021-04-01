@@ -3,8 +3,10 @@
 @section('content')
 <h1>Clients</h1>
 <hr>
-<a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
-<a href="{{action('HomeController@index')}}">Home</a>
+@can('create','App\Client')
+    <a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
+    <a href="{{action('HomeController@index')}}">Home</a>
+@endcan
     <ul>
         <table class="table table-light">
         <thead>

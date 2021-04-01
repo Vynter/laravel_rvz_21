@@ -34,6 +34,7 @@ class ClientsController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Client::class);
         $entreprises = Entreprise::all(); // utiliser dans le dropdown
         $client = new Client();
 
@@ -96,6 +97,7 @@ class ClientsController extends Controller
     }
     public function destroy(Client $client)
     {
+        $this->authorize('delete', $client); //$client= c'est seulement le client qu'on veut delete
         $client->delete();
         return redirect("clients");
     }
