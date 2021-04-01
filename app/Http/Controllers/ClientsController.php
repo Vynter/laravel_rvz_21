@@ -21,15 +21,17 @@ class ClientsController extends Controller
 
         //$clients = Client::where("status", '=', 1)->get(); sans utilisation du scope
         //$clients = Client::Status(); avec le scope
-        $clients = Client::all();
-        $entreprises = Entreprise::all();
+        //pour le eager loading
+        //$clients = Client::with('entreprise')->get();//version amélioré
+        $clients = Client::with('entreprise')->paginate(10);
+        //$entreprises = Entreprise::all();
         /*return view(
             'clients/index',
             [
                 'data' => $clients
             ]
         );*/
-        return view('clients/index', compact('clients', 'entreprises'));
+        return view('clients/index', compact('clients'));
     }
 
     public function create()

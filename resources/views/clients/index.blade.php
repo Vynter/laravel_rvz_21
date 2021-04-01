@@ -7,7 +7,7 @@
     <a href="/clients/create" class="btn btn-primary my-3">Nouveau client</a>
     <a href="{{action('HomeController@index')}}">Home</a>
 @endcan
-    <ul>
+
         <table class="table table-light">
         <thead>
             <tr>
@@ -45,7 +45,10 @@
         @endforeach
                 </tbody>
     </table>
-    </ul>
+    <div class="row d-flex justify-content-center">
+        {{ $clients->links()}}
+    </div>
+
 
 
 
