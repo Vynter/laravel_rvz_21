@@ -45,10 +45,12 @@
         @endforeach
                 </tbody>
     </table>
-    <div class="row d-flex justify-content-center">
-        {{ $clients->links()}}
-    </div>
 
+    <div class=" d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" >
+            {{ $clients->links()}}
+        </div>
+    </div>
 
 
 
